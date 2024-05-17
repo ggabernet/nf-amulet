@@ -1,0 +1,9 @@
+name: amulet
+channels:
+  - conda-forge
+  - defaults
+  - bioconda
+dependencies:
+  - python=3.11
+  - pip
+  - bioconda::igblast=1.22.0
