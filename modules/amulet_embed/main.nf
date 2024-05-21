@@ -1,5 +1,7 @@
 process AMULET_ANTIBERTY{
 
+    label 'gpus'
+
     container 'ggabernet/amulet:1.0.0'
     publishDir "${params.outdir}/amulet/antiberty/", mode: 'copy'
 

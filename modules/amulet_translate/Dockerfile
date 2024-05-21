@@ -1,7 +1,17 @@
-FROM continuumio/miniconda3
+FROM nvidia/cuda:12.4.1-base-ubuntu22.04
 
-RUN apt-get update && apt-get upgrade -y && apt-get install -y \
- unzip
+ENV PATH="/root/miniconda3/bin:${PATH}"
+ARG PATH="/root/miniconda3/bin:${PATH}"
+RUN apt-get update
+
+RUN apt-get install -y unzip wget git
+
+RUN wget \
+    https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh \
+    && mkdir /root/.conda \
+    && bash Miniconda3-latest-Linux-x86_64.sh -b \
+    && rm -f Miniconda3-latest-Linux-x86_64.sh 
+RUN conda --version
 
 ADD environment.yml /tmp/environment.yml
 WORKDIR /tmp
