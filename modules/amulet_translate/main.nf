@@ -4,7 +4,6 @@ process AMULET_TRANSLATE {
     memory 16.GB
     time 24.h
     
-
     container "ggabernet/amuletgpu:0.1.0"
     publishDir "${params.outdir}/translations/", mode: "copy"
 
