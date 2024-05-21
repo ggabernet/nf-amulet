@@ -13,6 +13,7 @@ process AMULET_ANTIBERTA{
 
     script:
     """
-    amulet antiberta2 $tsv ${params.mode} ${tsv.baseName}_${params.mode}_antiberta2.tsv
+    mkdir cache
+    amulet antiberta2 $tsv ${params.mode} ${tsv.baseName}_${params.mode}_antiberta2.tsv --cache_dir ./cache
     """
 }

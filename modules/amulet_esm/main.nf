@@ -14,6 +14,6 @@ process AMULET_ESM{
     script:
     """
     mkdir cache
-    amulet esm2 $tsv ${params.mode} ${tsv.baseName}_${params.mode}_esm2.tsv --cachedir ./cache
+    amulet esm2 $tsv ${params.mode} ${tsv.baseName}_${params.mode}_esm2.tsv --cache_dir ./cache
     """
 }
