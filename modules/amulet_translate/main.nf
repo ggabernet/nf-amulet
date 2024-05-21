@@ -5,7 +5,7 @@ process AMULET_TRANSLATE {
     time 24.h
     
 
-    container "ggabernet/amulet:1.0.0"
+    container "ggabernet/amuletgpu:0.1.0"
     publishDir "${params.outdir}/translations/", mode: "copy"
 
     input:
