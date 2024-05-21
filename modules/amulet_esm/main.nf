@@ -14,6 +14,7 @@ process AMULET_ESM{
     script:
     """
     mkdir cache
-    amulet esm2 $tsv ${params.mode} ${tsv.baseName}_${params.mode}_esm2.tsv --cache_dir ./cache
+    export TRANSFORMERS_CACHE="./cache"
+    amulet esm2 $tsv ${params.mode} ${tsv.baseName}_${params.mode}_esm2.tsv --cache-dir ./cache --batch-size 10
     """
 }

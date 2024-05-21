@@ -14,6 +14,7 @@ process AMULET_ANTIBERTA{
     script:
     """
     mkdir cache
-    amulet antiberta2 $tsv ${params.mode} ${tsv.baseName}_${params.mode}_antiberta2.tsv --cache_dir ./cache
+    export TRANSFORMERS_CACHE="./cache"
+    amulet antiberta2 $tsv ${params.mode} ${tsv.baseName}_${params.mode}_antiberta2.tsv --cache-dir ./cache
     """
 }
