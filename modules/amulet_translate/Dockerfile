@@ -21,4 +21,4 @@ RUN mamba env create -f /tmp/environment.yml
 RUN git clone https://github.com/immcantation/amulet.git
 WORKDIR /tmp/amulet
 RUN pip install -e .
-ENV PATH /opt/conda/envs/amulet/bin:$PATH
+ENV PATH /root/miniconda3/envs/amulet/bin:$PATH
