@@ -16,9 +16,6 @@ process AMULET_TRANSLATE {
 
     script:
     """
-    wget -c https://github.com/nf-core/test-datasets/raw/airrflow/database-cache/igblast_base.zip
-    unzip igblast_base.zip
-    
-    amulet translate-igblast $tsv . igblast_base
+    amulet translate-igblast $tsv . /igblast_base
     """
 }
