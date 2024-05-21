@@ -1,7 +1,7 @@
 process AMULET_TRANSLATE {
 
     cpus 6
-    memory 16
+    memory 16.GB
     time 24.h
     
 
