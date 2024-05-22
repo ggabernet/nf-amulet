@@ -1,6 +1,6 @@
 process AMULET_ESM{
 
-    label (params.with_gpu? 'gpus': 'process_medium')
+    label (params.with_gpu? 'gpus_highmem': 'process_medium')
 
     container 'ggabernet/amuletgpu:0.1.0'
     publishDir "${params.outdir}/amulet/esm2/", mode: 'copy'
