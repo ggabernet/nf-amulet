@@ -52,7 +52,7 @@ RUN git clone https://github.com/immcantation/amulet.git
 ENV PATH /opt/conda/envs/amulet/bin:$PATH
 ARG PATH /opt/conda/envs/amulet/bin:$PATH
 WORKDIR /tmp/amulet
-RUN pip install -e .
+RUN /opt/conda/envs/amulet/bin/python -m pip install .
 
 # Getting IgBLAST references
 WORKDIR /

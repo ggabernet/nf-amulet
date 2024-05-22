@@ -1,9 +1,7 @@
 process AMULET_TRANSLATE {
 
-    cpus 6
-    memory 16.GB
-    time 24.h
-    
+    label "process_medium"
+        
     container "ggabernet/amuletgpu:0.1.0"
     publishDir "${params.outdir}/translations/", mode: "copy"
 
