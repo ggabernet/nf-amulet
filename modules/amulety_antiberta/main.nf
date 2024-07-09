@@ -1,9 +1,9 @@
-process AMULET_ANTIBERTA{
+process AMULETY_ANTIBERTA{
 
     label (params.with_gpu? 'gpus': 'process_medium')
 
-    container 'ggabernet/amuletgpu:0.1.0'
-    publishDir "${params.outdir}/amulet/antiberta2/", mode: 'copy'
+    container 'ggabernet/amuletygpu:0.1.0'
+    publishDir "${params.outdir}/amulety/antiberta2/", mode: 'copy'
 
     input:
     path tsv
@@ -15,6 +15,6 @@ process AMULET_ANTIBERTA{
     """
     mkdir cache
     export TRANSFORMERS_CACHE="./cache"
-    amulet antiberta2 $tsv ${params.mode} ${tsv.baseName}_${params.mode}_antiberta2.tsv --cache-dir ./cache
+    amulety antiberta2 $tsv ${params.mode} ${tsv.baseName}_${params.mode}_antiberta2.tsv --cache-dir ./cache
     """
 }

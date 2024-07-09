@@ -1,8 +1,8 @@
-process AMULET_TRANSLATE {
+process AMULETY_TRANSLATE {
 
     label "process_medium"
         
-    container "ggabernet/amuletgpu:0.1.0"
+    container "ggabernet/amuletygpu:0.1.0"
     publishDir "${params.outdir}/translations/", mode: "copy"
 
     input:
@@ -13,6 +13,6 @@ process AMULET_TRANSLATE {
 
     script:
     """
-    amulet translate-igblast $tsv . /igblast_base
+    amulety translate-igblast $tsv . /igblast_base
     """
 }

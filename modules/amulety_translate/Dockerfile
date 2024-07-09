@@ -48,11 +48,12 @@ WORKDIR /tmp
 RUN conda update -n base -c defaults conda
 RUN conda install -c conda-forge mamba
 RUN mamba env create -f /tmp/environment.yml
-RUN git clone https://github.com/immcantation/amulet.git
-ENV PATH /opt/conda/envs/amulet/bin:$PATH
-ARG PATH /opt/conda/envs/amulet/bin:$PATH
-WORKDIR /tmp/amulet
-RUN /opt/conda/envs/amulet/bin/python -m pip install .
+RUN git clone https://github.com/immcantation/amulety.git
+ENV PATH /opt/conda/envs/amulety/bin:$PATH
+ARG PATH /opt/conda/envs/amulety/bin:$PATH
+WORKDIR /tmp/amulety
+RUN git checkout dev
+RUN /opt/conda/envs/amulety/bin/python -m pip install .
 
 # Getting IgBLAST references
 WORKDIR /
