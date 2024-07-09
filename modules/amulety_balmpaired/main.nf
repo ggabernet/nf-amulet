@@ -9,7 +9,7 @@ process AMULETY_BALMPAIRED{
     path tsv
     
     output:
-    path "${tsv.baseName}_${params.mode}_antiberta2.tsv" , emit: embedding
+    path "${tsv.baseName}_${params.mode}_balmpaired.tsv" , emit: embedding
 
     script:
     """
