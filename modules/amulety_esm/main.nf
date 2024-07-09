@@ -15,6 +15,6 @@ process AMULETY_ESM{
     """
     mkdir cache
     export TRANSFORMERS_CACHE="./cache"
-    amulety esm2 $tsv ${params.mode} ${tsv.baseName}_${params.mode}_esm2.tsv --cache-dir ./cache --batch-size 10
+    amulety esm2 --cache-dir ./cache --batch-size ${params.batch_size} --cell-id-col ${params.cell_id} $tsv ${params.mode} ${tsv.baseName}_${params.mode}_esm2.tsv
     """
 }

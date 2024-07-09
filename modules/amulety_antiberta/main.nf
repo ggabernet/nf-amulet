@@ -15,6 +15,6 @@ process AMULETY_ANTIBERTA{
     """
     mkdir cache
     export TRANSFORMERS_CACHE="./cache"
-    amulety antiberta2 $tsv ${params.mode} ${tsv.baseName}_${params.mode}_antiberta2.tsv --cache-dir ./cache
+    amulety antiberta2 --cell-id-col ${params.cell_id} --cache-dir ./cache $tsv ${params.mode} ${tsv.baseName}_${params.mode}_antiberta2.tsv 
     """
 }

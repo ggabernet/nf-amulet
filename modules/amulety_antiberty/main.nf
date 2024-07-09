@@ -13,6 +13,6 @@ process AMULETY_ANTIBERTY{
 
     script:
     """
-    amulety antiberty $tsv ${params.mode} ${tsv.baseName}_${params.mode}_antiberty.tsv
+    amulety antiberty --cell-id-col ${params.cell_id} $tsv ${params.mode} ${tsv.baseName}_${params.mode}_antiberty.tsv
     """
 }
