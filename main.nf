@@ -13,9 +13,14 @@ workflow {
     main:
     ch_input = Channel.fromPath(params.input, checkIfExists: true)
 
-    AMULETY_TRANSLATE(ch_input)
+    if (!params.skip_translation){
+        AMULETY_TRANSLATE(ch_input)
+        ch_translation = AMULETY_TRANSLATE.out.translated
+    } else {
+        ch_translation = ch_input
+    }
 
-    AMULETY_ANTIBERTY(AMULETY_TRANSLATE.out.translated)
+    AMULETY_ANTIBERTY(ch_translation)
 
     AMULETY_ANTIBERTA(AMULETY_TRANSLATE.out.translated)
 
