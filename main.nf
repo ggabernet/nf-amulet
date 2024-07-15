@@ -22,11 +22,11 @@ workflow {
 
     AMULETY_ANTIBERTY(ch_translation)
 
-    AMULETY_ANTIBERTA(AMULETY_TRANSLATE.out.translated)
+    AMULETY_ANTIBERTA(ch_translation)
 
-    AMULETY_ESM(AMULETY_TRANSLATE.out.translated)
+    AMULETY_ESM(ch_translation)
 
-    AMULETY_BALMPAIRED(AMULETY_TRANSLATE.out.translated)
+    AMULETY_BALMPAIRED(ch_translation)
 
 }
 
