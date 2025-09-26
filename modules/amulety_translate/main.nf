@@ -1,5 +1,4 @@
 process AMULETY_TRANSLATE {
-    tag "$meta.id"
     label 'process_single'
 
     container 'quay.io/biocontainers/mulled-v2-92ebbfc09fc136b8e201cb187cd9567ba335d439:459e6ebe51fb2818cb6de807f2c5fa99599b1214-0'
@@ -16,8 +15,6 @@ process AMULETY_TRANSLATE {
     task.ext.when == null || task.ext.when
 
     script:
-    def args = task.ext.args ?: ''
-    def prefix = task.ext.prefix ?: "${meta.id}"
     """
     export IGDATA=${reference_igblast}
     amulety translate-igblast $tsv . ${reference_igblast}
