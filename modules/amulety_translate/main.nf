@@ -9,7 +9,7 @@ process AMULETY_TRANSLATE {
     path(reference_igblast) // igblast references
 
     output:
-    path("*_translated.tsv") , emit: repertoire_translated
+    path("*_translated.tsv") , emit: translated
     path "versions.yml" , emit: versions
 
     when:
