@@ -12,9 +12,12 @@ workflow {
 
     main:
     ch_input = Channel.fromPath(params.input, checkIfExists: true)
+    ch_reference_igblast = Channel.fromPath(params.reference_igblast, checkIfExists: true)
 
     if (!params.skip_translation){
-        AMULETY_TRANSLATE(ch_input)
+        AMULETY_TRANSLATE(
+            ch_input,
+            ch_reference_igblast)
         ch_translation = AMULETY_TRANSLATE.out.translated
     } else {
         ch_translation = ch_input
