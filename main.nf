@@ -17,7 +17,8 @@ workflow {
     if (!params.skip_translation){
         AMULETY_TRANSLATE(
             ch_input,
-            ch_reference_igblast)
+            ch_reference_igblast.collect()
+        )
         ch_translation = AMULETY_TRANSLATE.out.translated
     } else {
         ch_translation = ch_input
