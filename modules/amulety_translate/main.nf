@@ -2,7 +2,7 @@ process AMULETY_TRANSLATE {
 
     label "process_medium"
         
-    container "ggabernet/amuletygpu:0.1.0"
+    container 'community.wave.seqera.io/library/amulety_igblast:659eaa872785adeb'
     publishDir "${params.outdir}/translations/", mode: "copy"
 
     input:
