@@ -1,23 +1,33 @@
 process AMULETY_TRANSLATE {
     label 'process_medium'
 
-    container 'quay.io/biocontainers/mulled-v2-92ebbfc09fc136b8e201cb187cd9567ba335d439:459e6ebe51fb2818cb6de807f2c5fa99599b1214-0'
+    container 'community.wave.seqera.io/library/igblast_curl_python_transformers_pruned:05685e2c81024d42'
 
     input:
     path(tsv)
     path(reference_igblast) // igblast references
 
     output:
-    path("*_translated.tsv") , emit: translated
-    path "versions.yml" , emit: versions
+    path("*_translated.tsv"), emit: translated
+    path "versions.yml", emit: versions
 
     when:
     task.ext.when == null || task.ext.when
 
     script:
+    def args   = task.ext.args   ?: ''
+    def prefix = task.ext.prefix ?: "${meta.id}"
     """
     export IGDATA=${reference_igblast}
-    amulety translate-igblast $tsv . ${reference_igblast}
+    amulety \\
+    translate-igblast \\
+    --nproc ${task.cpus} \\
+    $args \\
+    --input-file $tsv \\
+    --output-dir . \\
+    --reference-dir ${reference_igblast}
+
+    mv *_translated.tsv ${prefix}_translated.tsv
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
