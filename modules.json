@@ -1,0 +1,22 @@
+{
+  "name": "",
+  "homePage": "",
+  "repos": {
+    "https://github.com/nf-core/modules.git": {
+      "modules": {
+        "nf-core": {
+          "amulety/embed": {
+            "branch": "master",
+            "git_sha": "e86b866e3d7432a8e154604e2e1feef6c0107429",
+            "installed_by": ["modules"]
+          },
+          "amulety/translate": {
+            "branch": "master",
+            "git_sha": "e86b866e3d7432a8e154604e2e1feef6c0107429",
+            "installed_by": ["modules"]
+          }
+        }
+      }
+    }
+  }
+}
